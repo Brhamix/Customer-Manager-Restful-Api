@@ -4,6 +4,9 @@ use Psr\Http\Message\ResponseInterface as Response;
 
 require '../vendor/autoload.php';
 
+// database connections
+require '../src/config/db.php';
+
 $app = new \Slim\App;
 $app->get('/hello/{name}', function (Request $request, Response $response, array $args) {
     $name = $args['name'];
@@ -15,4 +18,5 @@ $app->get('/hello/{name}', function (Request $request, Response $response, array
 // Customer Routes
 require '../src/routes/customers.php';
 
+// run slim app
 $app->run();
